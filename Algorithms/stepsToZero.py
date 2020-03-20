@@ -20,12 +20,14 @@ def numberOfSteps(num, step):
     if num == 0:
         return
     elif (num % 2) == 1:
-        print("Step " + str(step) + ") " + str(num) + " is odd; subtract 1 and obtain " 
+        print("Step " + str(step) + ") " + str(num) + \
+            " is odd; subtract 1 and obtain " \
             + str(num-1) + ".")
         step += 1
         return numberOfSteps(num - 1, step)
     else:
-        print("Step " + str(step) + ") " + str(num) + " is even; divide by 2 and obtain " 
+        print("Step " + str(step) + ") " + \
+        str(num) + " is even; divide by 2 and obtain " \
             + str(num / 2) + ".")
         step += 1
         return numberOfSteps(num / 2, step)
