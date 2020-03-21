@@ -17,7 +17,7 @@ def quicksort(arr, low, high):
 def partition(arr, low, high):
     i = low - 1
     pivot = arr[high]
-
+    # Swap values compared to pivot point
     for j in range(low, high):
         if arr[j] < pivot:
             i += 1
@@ -45,6 +45,6 @@ def getArray():
 if __name__ == "__main__":
     # Get input array
     toSort = getArray()
-    # Call sorting algorithm
+    # Call sorting algorithm, pivot last element
     sorted = quicksort(toSort, 0, len(toSort) - 1)
     print(str(sorted))
