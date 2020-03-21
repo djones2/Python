@@ -20,7 +20,7 @@ def mergeSort(arr):
         i = 0
         j = 0
         k = 0
-
+        # Compare lists at each index, insert back into array
         while i < len(left) and j < len(right):
             if left[i] < right[j]:
                 arr[k] = left[i]
@@ -29,17 +29,19 @@ def mergeSort(arr):
                 arr[k] = right[j]
                 j += 1
             k += 1
-
+        # Clean up left list
         while i < len(left):
             arr[k] = left[i]
             i += 1
             k += 1
+        # Clean up right list
         while j < len(right):
             arr[k] = right[j]
             j += 1
             k += 1
 
         print(str(arr))
+    # Return sorted array
     return arr
 
 
