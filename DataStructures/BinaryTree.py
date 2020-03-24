@@ -37,20 +37,20 @@ def inorder(root):
         inorder(root.right) 
 
 def searchBinaryTree(root, val):
-    if val == root.val or root.val == None:
+    if root == None:
+        print("Value does not exist in current tree.")
+    elif val == root.val:
         inorder(root)
     elif val > root.val:
         root = root.right
-        # print(root.val)
         searchBinaryTree(root, val)
     else:
         root = root.left
-        # print(root.val)
         searchBinaryTree(root, val)
 
 # Main Program 
 if __name__ == "__main__":
-    val = 60
+    val = 90
     r = TreeNode(50) 
     insert(r, TreeNode(30)) 
     insert(r, TreeNode(60)) 
