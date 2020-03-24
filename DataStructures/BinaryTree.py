@@ -4,7 +4,7 @@ import sys
 Given the root node of a binary search tree (BST) and a value. 
 You need to find the node in the BST that the node's value equals the given value. 
 Return the subtree rooted with that node. 
-If such node doesn't exist, you should return NULL.
+If such node doesn't exist, return "Value does not exist in current tree."
 """
 
 # Definition for a binary tree node. (Given)
@@ -29,18 +29,21 @@ def insert(root, node):
                 root.left = node 
             else: 
                 insert(root.left, node) 
-  
-def inorder(root): 
+
+# Prints out values of BST in preorder traversal
+def preorder(root): 
     if root: 
-        inorder(root.left) 
-        print(root.val) 
-        inorder(root.right) 
+        print(root.val)
+        preorder(root.left)  
+        preorder(root.right) 
 
 def searchBinaryTree(root, val):
     if root == None:
         print("Value does not exist in current tree.")
+        return 0
     elif val == root.val:
-        inorder(root)
+        preorder(root)
+        return 1
     elif val > root.val:
         root = root.right
         searchBinaryTree(root, val)
@@ -50,7 +53,7 @@ def searchBinaryTree(root, val):
 
 # Main Program 
 if __name__ == "__main__":
-    val = 90
+    val = 50
     r = TreeNode(50) 
     insert(r, TreeNode(30)) 
     insert(r, TreeNode(60)) 
