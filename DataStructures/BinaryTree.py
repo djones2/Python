@@ -8,6 +8,8 @@ If such node doesn't exist, return "Value does not exist in current tree."
 """
 
 # Definition for a binary tree node. (Given)
+
+
 class TreeNode:
     def __init__(self, x):
         self.val = x
@@ -15,27 +17,32 @@ class TreeNode:
         self.right = None
 
 # Insert value into Binary Search Tree
-def insert(root, node): 
-    if root is None: 
-        root = node 
-    else: 
-        if root.val < node.val: 
-            if root.right is None: 
-                root.right = node 
-            else: 
-                insert(root.right, node) 
-        else: 
-            if root.left is None: 
-                root.left = node 
-            else: 
-                insert(root.left, node) 
+
+
+def insert(root, node):
+    if root is None:
+        root = node
+    else:
+        if root.val < node.val:
+            if root.right is None:
+                root.right = node
+            else:
+                insert(root.right, node)
+        else:
+            if root.left is None:
+                root.left = node
+            else:
+                insert(root.left, node)
 
 # Prints out values of BST in preorder traversal
-def preorder(root): 
-    if root: 
+
+
+def preorder(root):
+    if root:
         print(root.val)
-        preorder(root.left)  
-        preorder(root.right) 
+        preorder(root.left)
+        preorder(root.right)
+
 
 def searchBinaryTree(root, val):
     if root == None:
@@ -51,14 +58,15 @@ def searchBinaryTree(root, val):
         root = root.left
         searchBinaryTree(root, val)
 
-# Main Program 
+
+# Main Program
 if __name__ == "__main__":
     val = 50
-    r = TreeNode(50) 
-    insert(r, TreeNode(30)) 
-    insert(r, TreeNode(60)) 
-    insert(r, TreeNode(20)) 
-    insert(r, TreeNode(40)) 
-    insert(r, TreeNode(70)) 
-    insert(r, TreeNode(80)) 
+    r = TreeNode(50)
+    insert(r, TreeNode(30))
+    insert(r, TreeNode(60))
+    insert(r, TreeNode(20))
+    insert(r, TreeNode(40))
+    insert(r, TreeNode(70))
+    insert(r, TreeNode(80))
     searchBinaryTree(r, val)
