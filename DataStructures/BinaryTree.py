@@ -46,7 +46,6 @@ def preorder(root):
 
 def searchBinaryTree(root, val):
     if root == None:
-        print("Value does not exist in current tree.")
         return 0
     elif val == root.val:
         preorder(root)
@@ -61,7 +60,7 @@ def searchBinaryTree(root, val):
 
 # Main Program
 if __name__ == "__main__":
-    val = 50
+    val = 77
     r = TreeNode(50)
     insert(r, TreeNode(30))
     insert(r, TreeNode(60))
@@ -69,4 +68,7 @@ if __name__ == "__main__":
     insert(r, TreeNode(40))
     insert(r, TreeNode(70))
     insert(r, TreeNode(80))
-    searchBinaryTree(r, val)
+    if searchBinaryTree(r, val):
+        print("Found " + str(val) + " in BST.")
+    else:
+        print("Could not find " + str(val) + " in BST .")

@@ -1,4 +1,5 @@
 import sys
+import random
 
 """ 
 Linked list implementation.
@@ -52,6 +53,15 @@ class LinkedList:
         prev.next = temp_node.next
         temp = None
 
+    def search(self, target):
+        temp_node = self.head
+        while temp_node:
+            if temp_node.data == target:
+                return 1
+            else:
+                temp_node = temp_node.next
+        return 0
+
 
 class Node:
     def __init__(self, data):
@@ -65,11 +75,19 @@ if __name__ == "__main__":
     print("Creating linked list:")
     linked_list = LinkedList()
     # Create some nodes
-    linked_list.insert(21)
-    linked_list.insert(12)
-    linked_list.insert(4)
+    list_length = random.randint(0, 100)
+    i = 0
+    while (i < list_length):
+        linked_list.insert(random.randint(0, 100))
+        i += 1
     # Print list contents
     linked_list.printLinkedList()
-    linked_list.delete(12)
-    print("Deleting node from list:")
+    val1 = random.randint(0, 100)
+    print("Deleting node " + str(val1) + " from list if exists.")
+    linked_list.delete(val1)
     linked_list.printLinkedList()
+    val2 = random.randint(0, 100)
+    if linked_list.search(val2):
+        print("Found " + str(val2) + " in Linked List.")
+    else:
+        print("Could not find " + str(val2) + " in Linked List.")
