@@ -27,7 +27,7 @@ class DoublyLinkedList:
             last_node = last_node.next
         last_node.next = new_node
         new_node.prev = last_node
-    """
+
     def delete(self, data):
         to_delete = Node(data)
         temp_node = self.head
@@ -61,7 +61,7 @@ class DoublyLinkedList:
                 return 1
             else:
                 temp_node = temp_node.next
-        return 0 """
+        return 0 
 
 
 class Node:
@@ -76,10 +76,18 @@ if __name__ == "__main__":
     # Create list
     print("Creating linked list:")
     double_list = DoublyLinkedList()
-    list_length = random.randint(0, 100)
+    list_length = 10
     i = 0
     while (i < list_length):
-        double_list.insert(random.randint(0, 100))
+        double_list.insert(random.randint(0, 10))
         i += 1
     # Print list contents
     double_list.printList()
+    double_list.delete(8)
+    double_list.printList()
+    double_list.insert(8)
+    double_list.printList()
+    if double_list.search(4):
+        print("Found " + str(4) + " in Linked List.")
+    else:
+        print("Could not find " + str(4) + " in Linked List.")
