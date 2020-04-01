@@ -8,71 +8,37 @@ Stack implementation.
 
 class Stack:
     def __init__(self):
-        self.head = None
-"""
-    def printList(self):
-        temp = self.head
-        while(temp):
-            print(temp.data, end=" ")
-            temp = temp.next
-        print("")
-    
-    def insert(self, data):
-        new_node = Node(data)
-        if self.head is None:
-            self.head = new_node
-            return
-        last_node = self.head
-        while(last_node.next):
-            last_node = last_node.next
-        last_node.next = new_node
-        new_node.prev = last_node
+        self.items = []
 
-    def delete(self, data):
-        to_delete = Node(data)
-        temp_node = self.head
-        if self.head is not None:
-            if (temp_node.data == to_delete.data):
-                self.head = temp_node.next
-                temp_node = None
-                return
+    def push(self, data):
+        return self.items.append(data)
 
-        # Iterate through nodes, see if data matches
-        while (temp_node):
-            if temp_node.data == to_delete.data:
-                break
-            # Hold previous Node
-            prev = temp_node
-            # Assign temp node to next node value
-            temp_node = temp_node.next
+    def pop(self):
+        pop_index = len(self.items) - 1
+        pop_value = self.items[len(self.items) - 1]
+        self.items = self.items[:pop_index]
+        return pop_value
 
-        # Node not found, temp is none
-        if (temp_node == None):
-            return
+    def isEmpty(self):
+        return len(self.items) == 0
 
-        # Unlink found node from linked list
-        prev.next = temp_node.next
-        temp = None
-
-    def search(self, target):
-        temp_node = self.head
-        while temp_node:
-            if temp_node.data == target:
-                return 1
-            else:
-                temp_node = temp_node.next
-        return 0 
-
-
-class Node:
-    def __init__(self, data):
-        self.data = data
-        self.next = None
-        self.prev = None
-"""
+    def top(self):
+        return self.items[len(self.items) - 1]
 
 # Main Program
 if __name__ == "__main__":
-    # Create list
-    print("Creating Stack:")
-    
+    # Create Stack
+    stack = Stack()
+    # Check if it is empty
+    print("Is the stack empty? -> " + str(stack.isEmpty()))
+    i = 0
+    print("Pushing 10 items to the stack:")
+    while (i < 10):
+        stack.push(random.randint(0, 10))
+        i += 1
+    print(str(stack.items))
+    print("Popping value off of stack: " + str(stack.pop()))
+    print("Current stack: ")
+    print(str(stack.items))
+    print("Is the stack empty? -> " + str(stack.isEmpty()))
+    print("Here's the new top stack value: " + str(stack.top()))
