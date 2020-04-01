@@ -25,6 +25,7 @@ class Stack:
     def top(self):
         return self.items[len(self.items) - 1]
 
+
 # Main Program
 if __name__ == "__main__":
     # Create Stack
