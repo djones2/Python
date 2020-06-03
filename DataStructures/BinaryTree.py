@@ -36,7 +36,6 @@ def insert(root, node):
 
 # Prints out values of BST in preorder traversal
 
-
 def preorder(root):
     if root:
         print(root.val)

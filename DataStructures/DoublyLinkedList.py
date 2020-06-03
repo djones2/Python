@@ -12,18 +12,18 @@ class DoublyLinkedList:
 
     def printList(self):
         temp = self.head
-        while(temp):
+        while temp:
             print(temp.data, end=" ")
             temp = temp.next
         print("")
-    
+
     def insert(self, data):
         new_node = Node(data)
         if self.head is None:
             self.head = new_node
             return
         last_node = self.head
-        while(last_node.next):
+        while last_node.next:
             last_node = last_node.next
         last_node.next = new_node
         new_node.prev = last_node
@@ -32,13 +32,13 @@ class DoublyLinkedList:
         to_delete = Node(data)
         temp_node = self.head
         if self.head is not None:
-            if (temp_node.data == to_delete.data):
+            if temp_node.data == to_delete.data:
                 self.head = temp_node.next
                 temp_node = None
                 return
 
         # Iterate through nodes, see if data matches
-        while (temp_node):
+        while temp_node:
             if temp_node.data == to_delete.data:
                 break
             # Hold previous Node
@@ -47,7 +47,7 @@ class DoublyLinkedList:
             temp_node = temp_node.next
 
         # Node not found, temp is none
-        if (temp_node == None):
+        if temp_node == None:
             return
 
         # Unlink found node from linked list
@@ -61,7 +61,7 @@ class DoublyLinkedList:
                 return 1
             else:
                 temp_node = temp_node.next
-        return 0 
+        return 0
 
 
 class Node:

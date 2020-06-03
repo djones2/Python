@@ -1,5 +1,6 @@
 import sys
 import random
+import unittest
 
 """ 
 Array implementation. Only focused on integer usage.
@@ -25,6 +26,14 @@ class Array:
         return len(self.items)
 
 
+class ArrayTests(unittest.TestCase):
+
+    def test_insert(self):
+        test_list = Array(3)
+        test_list.insert(1, 1)
+        self.assertEqual(test_list.get(1), 1)
+
+
 # Main Program
 if __name__ == "__main__":
     # Create Stack
@@ -41,4 +50,4 @@ if __name__ == "__main__":
     print("Deleting 3 from the list:")
     array.delete(5)
     print(str(array.items))
-    
+    unittest.main()
